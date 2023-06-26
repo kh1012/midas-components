@@ -5,3 +5,6 @@ export {
 	VerifyDialog,
 	VerifyUtil,
 }
+
+//npm run compile
+//npm publish
