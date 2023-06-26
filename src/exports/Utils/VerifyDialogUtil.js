@@ -1,13 +1,15 @@
-const prUrl = 'https://api-beta.midasit.com';
-
 export function isExistQueryStrings(query) {
   const params = new URLSearchParams(window.location.search);
   const param = params.get(query) || "";
   return ( param !== "" );
 }
 
+export function getProductionUrl() {
+	return 'https://api-beta.midasit.com';
+}
+
 export async function getVerifyInfoAsync(mapiKey) {
-	const res = await fetch(`${prUrl}/mapikey/verify`, {
+	const res = await fetch(`${getProductionUrl()}/mapikey/verify`, {
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json",
@@ -22,7 +24,7 @@ export async function getVerifyInfoAsync(mapiKey) {
 export async function getBaseUrlAsync() {
 	const mapiKey = getMapiKey();
 	const info = await getVerifyInfoAsync(mapiKey);
-	return `${prUrl}/${info.program}`;
+	return `${getProductionUrl()}/${info.program}`;
 }
 
 export function getMapiKey() {

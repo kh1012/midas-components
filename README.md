@@ -22,6 +22,7 @@ import { VerifyDialog, VerifyUtil } from "midas-components";
 //자신의 Component와 동일한 위치에 VerifyDialog를 삽입합니다.
 //조건에 따라 VerifyDialog가 활성화 됩니다.
 function Component(props) {
+	const [productionUrl, setProductionUrl] = React.useState("");
 	const [baseUrl, setBaseUrl] = React.useState("");
 	const [mapiKey, setMapiKey] = React.useState("");
 
@@ -29,7 +30,11 @@ function Component(props) {
 	React.useEffect(() => {
 		//useEffect hook 내부에서 async 함수를 쓰기위해 비동기 부분을 감싼 함수를 사용합니다.
 		const initAsync = async () => {
+			//API Production Url을 얻어옵니다. (https://api-beta.midasit.com)
+			setProductionUrl(VerifyUtil.getProductionUrl());
+			//API에서 사용할 baseUrl을 얻어옵니다. (ex, https://api-beta.midasit.com/civil or gen)
 			setBaseUrl(await VerifyUtil.getBaseUrlAsync());
+			//API에서 사용할 Key값을 얻어옵니다.
 			setMapiKey(VerifyUtil.getMapiKey());
 		};
 
