@@ -1,5 +1,5 @@
-import * as VerifyUtil from './Utils/VerifyDialogUtil';
-import VerifyDialog from './Components/VerifyDialog';
+import * as VerifyUtil from 'exports/utils/VerifyDialogUtil';
+import VerifyDialog from 'exports/components/VerifyDialog';
 
 export {
 	VerifyDialog,

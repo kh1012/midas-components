@@ -1,6 +1,6 @@
 import React from 'react';
 import * as mui from '@mui/material';
-import { isExistQueryStrings } from '../Utils/VerifyDialogUtil';
+import { isExistQueryStrings } from 'exports/utils/VerifyDialogUtil';
 
 const MdasCIsvg = () => {
 	return (
